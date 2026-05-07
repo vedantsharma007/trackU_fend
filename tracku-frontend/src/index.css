@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── DARK THEME (default) ───────────────────────── */
+:root,
+[data-theme="dark"] {
+  --bg-primary:    #07070d;
+  --bg-secondary:  #0e0e18;
+  --bg-card:       rgba(255, 255, 255, 0.035);
+  --bg-card-hover: rgba(255, 255, 255, 0.065);
+  --border:        rgba(255, 255, 255, 0.07);
+  --border-focus:  rgba(99, 102, 241, 0.55);
+  --accent:        #6366f1;
+  --accent-hover:  #818cf8;
+  --accent-dim:    rgba(99, 102, 241, 0.12);
+  --accent-glow:   rgba(99, 102, 241, 0.25);
+  --text-primary:  #eeeef5;
+  --text-secondary:#888899;
+  --text-muted:    #44445a;
+  --error:         #f87171;
+  --error-dim:     rgba(248, 113, 113, 0.1);
+  --warning:       #fbbf24;
+  --warning-dim:   rgba(251, 191, 36, 0.1);
+  --success:       #34d399;
+  --success-dim:   rgba(52, 211, 153, 0.1);
+  --shadow-sm:     0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow:        0 8px 32px rgba(0, 0, 0, 0.45);
+  --shadow-lg:     0 24px 64px rgba(0, 0, 0, 0.5);
+  --header-bg:     rgba(7, 7, 13, 0.88);
+}
+
+/* ─── LIGHT THEME ────────────────────────────────── */
+[data-theme="light"] {
+  --bg-primary:    #f4f4f8;
+  --bg-secondary:  #eaeaf0;
+  --bg-card:       rgba(255, 255, 255, 0.85);
+  --bg-card-hover: rgba(255, 255, 255, 1);
+  --border:        rgba(0, 0, 0, 0.08);
+  --border-focus:  rgba(99, 102, 241, 0.5);
+  --accent:        #6366f1;
+  --accent-hover:  #4f46e5;
+  --accent-dim:    rgba(99, 102, 241, 0.1);
+  --accent-glow:   rgba(99, 102, 241, 0.2);
+  --text-primary:  #111118;
+  --text-secondary:#555566;
+  --text-muted:    #9999aa;
+  --error:         #dc2626;
+  --error-dim:     rgba(220, 38, 38, 0.08);
+  --warning:       #d97706;
+  --warning-dim:   rgba(217, 119, 6, 0.08);
+  --success:       #059669;
+  --success-dim:   rgba(5, 150, 105, 0.08);
+  --shadow-sm:     0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow:        0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-lg:     0 24px 64px rgba(0, 0, 0, 0.15);
+  --header-bg:     rgba(244, 244, 248, 0.92);
+}
+
+/* ─── Shared tokens (not theme-dependent) ────────── */
+:root {
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --radius-sm:    8px;
+  --radius:       12px;
+  --radius-lg:    18px;
+  --radius-xl:    24px;
+  --transition:   all 0.18s ease;
+  --transition-slow: all 0.35s ease;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─── Scrollbar ──────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
+
+/* ─── Resets ─────────────────────────────────────── */
+button { cursor: pointer; font-family: var(--font-body); border: none; outline: none; }
+input, textarea, select { font-family: var(--font-body); outline: none; }
+input[type="search"]::-webkit-search-cancel-button { display: none; }
+input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.4); cursor: pointer; }
+a { color: var(--accent); text-decoration: none; transition: var(--transition); }
+a:hover { color: var(--accent-hover); }
+
+/* ─── Keyframes ──────────────────────────────────── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
+}
+
+/* ─── Utility classes ────────────────────────────── */
+.animate-fadeInUp  { animation: fadeInUp  0.4s ease both; }
+.animate-scaleIn   { animation: scaleIn   0.3s ease both; }
+.animate-fadeIn    { animation: fadeIn    0.3s ease both; }
+.animate-slideDown { animation: slideDown 0.25s ease both; }
+
+.stagger-1  { animation-delay: 0.04s; }
+.stagger-2  { animation-delay: 0.08s; }
+.stagger-3  { animation-delay: 0.12s; }
+.stagger-4  { animation-delay: 0.16s; }
+.stagger-5  { animation-delay: 0.20s; }
+.stagger-6  { animation-delay: 0.24s; }
+.stagger-7  { animation-delay: 0.28s; }
+.stagger-8  { animation-delay: 0.32s; }
+.stagger-9  { animation-delay: 0.36s; }
+.stagger-10 { animation-delay: 0.40s; }
+
+/* ─── Skeleton shimmer ───────────────────────────── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-card) 25%,
+    rgba(128,128,128,0.08) 50%,
+    var(--bg-card) 75%
+  );
+  background-size: 400px 100%;
+  animation: shimmer 1.4s ease infinite;
+  border-radius: var(--radius);
+}
+
+/* ─── Responsive helpers ─────────────────────────── */
+@media (max-width: 600px) {
+  .hide-mobile  { display: none !important; }
+}
+@media (min-width: 601px) {
+  .hide-desktop { display: none !important; }
+}
+
+/* ─── Light theme input/select overrides ─────────── */
+[data-theme="light"] input,
+[data-theme="light"] textarea,
+[data-theme="light"] select {
+  color-scheme: light;
+}
+
+[data-theme="light"] input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0);
+}
